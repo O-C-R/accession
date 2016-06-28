@@ -19,12 +19,12 @@ Please note that we can't and won't provide any support for the things that are 
 
 ##Using the API
 
-http://localhost:12892/match/<corpus>/<input>/<extension>/<weights>
+http://localhost:12892/match/*corpus*/*input*/*extension*/*weights*
 
 corpus: 'artists' or 'artworks'
 input: your search string
 extension: how many words longer or shorter you'd like the returned objects(s) to be
-weights: custom adjustment to the weightings applied to the NLP factors. <pattern>,<parts of speech>,<stressing>,<syllables>
+weights: custom adjustment to the weightings applied to the NLP factors. *pattern*,*parts of speech*,*stressing*,*syllables*
 
 ##Installing the API on your own machine
 
