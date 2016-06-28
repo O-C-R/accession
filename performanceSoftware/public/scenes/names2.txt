@@ -1,0 +1,24 @@
+{
+	"name":"Names New",
+	"timing":{
+		"duration":3000000,
+		"delay":100000,
+		"speed":1
+	},
+	"playback":{
+		"type":"flat",
+		"solos":[0,1,2,3,4,5]
+	},
+	"actors":[0,1,2,3,4,5],
+	"scriptOrder":[0,1,1,1,1,1],
+	"actorOrder":[4,0,5,1,2,3],
+	"scripts":[
+		{
+			"url":"aggregateNames.txt"
+		},
+		{
+			"url":"fullNames.txt"
+		}
+
+	]
+}

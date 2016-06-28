@@ -1,0 +1,22 @@
+{
+	"name":"MANUAL bottoms",
+	"actors":[1,4],
+	"scriptOrder":[0,0],
+	"actorOrder":[1,4],
+	"timing":{
+        "duration":1200000000,
+        "delay":5
+    },
+	"playback":{
+		"type":"flat",
+		"order":"random"
+	},
+	"scripts":[
+		{
+			"url":"bottoms.txt",
+			"actors":[1,4]
+		}
+
+	]
+
+}

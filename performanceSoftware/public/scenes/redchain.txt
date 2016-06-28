@@ -1,0 +1,21 @@
+{
+	"name":"Red Chain",
+	"actors”:[0,1],
+	"scriptOrder":[0],
+	"actorOrder":[0,1],
+	"timing":{
+		"duration":120000000000000000,
+		"delay":5
+	},
+	"playback":{
+		"type":"sequence"
+	},
+	"scripts":[
+		{
+			"url": "red_chain.txt",
+			"actors":[0,1]
+		}
+
+	]
+
+}

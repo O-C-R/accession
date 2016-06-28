@@ -1,0 +1,37 @@
+{
+	"name":"MANUAL Docent Tour",
+	"timing":{
+		"duration":120000000000,
+		"delay":10
+	},
+	"playback":{
+		"type":"flat"
+	},
+	"actors":[0,1,2,3,4,5],
+	"scriptOrder":[0,1,2,3,4,4],
+	"actorOrder":[0,1,2,3,4,5],
+	"scripts":[
+		{
+			"url":"Docent_longTitles.txt",
+			"actors":[5]
+		},
+		{
+			"url":"Docent_questions.txt",
+			"actors":[1]
+		},
+		{
+			"url":"Docent_we.txt",
+			"actors":[2]
+		},
+		{
+			"url":"Docent_declaratives.txt",
+			"actors":[3]
+		},
+		{
+			"url":"Docent_fuckshit.txt",
+			"actors":[0, 4]
+		}
+
+	]
+
+}

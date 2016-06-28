@@ -1,0 +1,20 @@
+{
+	"name":"MANUAL This is",
+	"timing":{
+		"duration":120000000000,
+		"delay":10
+	},
+	"playback":{
+		"type":"flat"
+	},
+	"actors":[4],
+	"scriptOrder":[0],
+	"actorOrder":[4],
+	"scripts":[
+		{
+			"url":"Docent_declaratives.txt",
+			"actors":[4]
+		}
+	]
+
+}

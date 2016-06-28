@@ -1,0 +1,30 @@
+{
+	"name":"random example",
+	"timing":{
+		"duration":30,
+		"delay":30
+	},
+	"playback":{
+		"type":"flat",
+		"order":"random"
+	},
+	"actors":[0,1,2],
+	"scriptOrder":[0,1,2],
+	"actorOrder":[0,1,2],
+	"scripts":[
+		{
+			"url":"vegetables.txt",
+			"actors":[0]
+		},
+		{
+			"url":"vegetables.txt",
+			"actors":[0]
+		},
+		{
+			"url":"vegetables.txt",
+			"actors":[0]
+		}
+
+	]
+
+}

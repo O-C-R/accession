@@ -1,0 +1,22 @@
+{
+	"name":"Girl Chain",
+	"timing":{
+		"duration":300000000000000,
+		"delay":1,
+		"speed":1
+	},
+	"playback":{
+		"type":"flat"
+	},
+	"actors":[3,5],
+	"scriptOrder":[0,0],
+	"actorOrder":[3,5],
+	"scripts":[
+		{
+			"url":"girl_chain.txt",
+			"actors":[3,5]
+		}
+
+	]
+
+}

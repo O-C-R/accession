@@ -1,0 +1,21 @@
+{
+	"name":"Body Chain",
+	"actors”:[0,1],
+	"scriptOrder":[0,0],
+	"actorOrder":[0,1],
+	"timing":{
+		"duration":1200000000,
+		"delay":5
+	},
+	"playback":{
+		"type":"sequence"
+	},
+	"scripts":[
+		{
+			"url": "body_chain.txt",
+			"actors":[0,1]
+		}
+
+	]
+
+}

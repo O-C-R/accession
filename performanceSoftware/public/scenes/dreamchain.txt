@@ -1,0 +1,21 @@
+{
+	"name":"Dream Chain",
+	"actors":[1,4],
+	"scriptOrder":[0,0],
+	"actorOrder":[1,4],
+	"timing":{
+		"duration":1200000000,
+		"delay":1
+	},
+	"playback":{
+		"type":"flat"
+	},
+	"scripts":[
+		{
+			"url": "dream_chain.txt",
+			"actors":[1,4]
+		}
+
+	]
+
+}

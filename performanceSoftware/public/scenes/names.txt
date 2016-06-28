@@ -1,0 +1,27 @@
+{
+	"name":"Names New",
+	"timing":{
+		"duration":3000000,
+		"delay":100000,
+		"speed":1
+	},
+	"playback":{
+		"type":"sequence",
+		"solos":[0,1,2,3,4,5]
+	},
+	"actors":[0,1,2,3,4,5],
+	"scriptOrder":[2,0,0,0,1,2],
+	"actorOrder":[0,1,2,3,4,5],
+	"scripts":[
+		{
+			"url":"aggregateNames.txt"
+		},
+		{
+			"url":"fullNames.txt"
+		},
+		{
+			"url":"women.txt"
+		}
+
+	]
+}

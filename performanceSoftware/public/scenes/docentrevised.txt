@@ -1,0 +1,29 @@
+{
+	"name":"MANUAL Docent Tour",
+	"timing":{
+		"duration":120000000000,
+		"delay":10
+	},
+	"playback":{
+		"type":"flat"
+	},
+	"actors":[0,2,5],
+	"scriptOrder":[0,1,2],
+	"actorOrder":[0,2,5],
+	"scripts":[
+		{
+			"url":"Docent_declaratives.txt",
+			"actors":[0]
+		},
+		{
+			"url":"Docent_declaratives.txt",
+			"actors":[3]
+		},
+		{
+			"url":"Docent_longTitles.txt",
+			"actors":[5]
+		}
+
+	]
+
+}

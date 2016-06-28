@@ -1,0 +1,32 @@
+{
+
+	"name":"Test Run",
+	"events":[
+
+		[{
+			"timing":{
+				"delay":0
+			},
+			"type":"broadcast",
+			"message":"Ladies and Gentlemen, the show is about to begin."
+		}],
+		[
+		{
+			"timing":{
+				"delay":0
+			},
+			"type":"sceneLoad",
+			"scene":"docent.txt"
+		}],
+		[{
+			"timing":{
+				"delay":0
+			},
+			"type":"broadcast",
+			"message":"Docent tour finished."
+		}]
+
+	]
+	
+
+}

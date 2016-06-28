@@ -1,0 +1,23 @@
+{
+	"name":"MANUAL tops",
+	"actors":[3,5],
+	"scriptOrder":[0,0],
+	"actorOrder":[3,5],
+	"timing":{
+        "duration":12000000000000000000,
+        "delay":5,
+        "speed":1
+    },
+	"playback":{
+		"type":"flat",
+		"order":"random"
+	},
+	"scripts":[
+		{
+			"url":"tops.txt",
+			"actors":[3,5]
+		}
+
+	]
+
+}

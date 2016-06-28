@@ -1,0 +1,20 @@
+{
+	"name":"Meat",
+	"timing":{
+		"duration":120000000000000,
+		"delay":5,
+		"speed":1
+	},
+	"playback":{
+		"type":"sequence"
+	},
+	"actors":[3],
+	"scriptOrder":[0],
+	"actorOrder":[3],
+	"scripts":[
+		{
+			"url":"meats.txt",
+			"actors":[3]
+		}
+	]
+}

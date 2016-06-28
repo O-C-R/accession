@@ -1,0 +1,26 @@
+{
+	"name":"God Body",
+	"timing":{
+		"duration":120000000000000,
+		"delay":3,
+		"speed":1
+	},
+	"playback":{
+		"type":"flat",
+		"order":"random"
+	},
+	"actors":[2,5],
+	"scriptOrder":[0,1],
+	"actorOrder":[2,5],
+	"scripts":[
+		{
+			"url":"god.txt",
+			"actors":[2]
+		},
+		{
+			"url":"body.txt",
+			"actors":[5]
+		}
+	]
+
+}

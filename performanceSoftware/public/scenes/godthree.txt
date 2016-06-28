@@ -1,0 +1,29 @@
+{
+	"name":"God Body America",
+	"timing":{
+		"duration":1200000000000000,
+		"delay":3,
+		"speed":1
+	},
+	"playback":{
+		"type":"flat",
+		"order":"random"
+	},
+	"actors":[0,2,5],
+	"scriptOrder":[0,1,2],
+	"actorOrder":[0,2,5],
+	"scripts":[
+		{
+			"url":"america.txt",
+			"actors":[0]
+		},
+		{
+			"url":"god.txt",
+			"actors":[2]
+		},
+		{
+			"url":"body.txt",
+			"actors":[5]
+		}		
+	]
+}

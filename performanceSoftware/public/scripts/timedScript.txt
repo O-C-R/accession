@@ -1,0 +1,4 @@
+~0:Line for actor 1
+~1;10:Line for actor 2
+~2:Line for actor 3
+~012:Line for all actors

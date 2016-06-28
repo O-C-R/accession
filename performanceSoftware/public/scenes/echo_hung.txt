@@ -1,0 +1,40 @@
+{
+	"name":"Echo (data) for works hung in the show",
+	"timing":{
+		"duration":120000000000,
+		"delay":2,
+		"speed": 0.7
+	},
+	"playback":{
+		"type":"flat"
+	},
+	"actors":[0,1,2,3,4,5],
+	"scriptOrder":[0,1,2,3,4,5],
+	"actorOrder":[5,1,2,3,4,0],
+	"scripts":[
+		{
+			"url":"hung_5.txt",
+			"actors":[0]
+		},
+		{
+			"url":"hung_1.txt",
+			"actors":[1]
+		},
+		{
+			"url":"hung_2.txt",
+			"actors":[2]
+		},
+		{
+			"url":"hung_3.txt",
+			"actors":[3]
+		},
+		{
+			"url":"hung_4.txt",
+			"actors":[4]
+		},
+		{	"url":"hung_0.txt",
+			"actors":[5]
+		}
+	]
+
+}

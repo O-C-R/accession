@@ -1,0 +1,217 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 63px Helvetica, Arial; color:#FFF; background-color:#000; }
+      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      label{background-color: gray;}
+      .message { position:absolute; display:block; padding: 5px 10px; left:100px;}
+      #chatNumber {position:absolute; color:#fff; font-size:48px;}
+
+      #control {position:absolute; top: 40px; color:#fff; font-size:30px;}
+      .controlButton {position:relative; float:left; top: 10px; padding: 5px; color:#fff; font-size:24px;}
+      .favoriteB {background-color: #FF8565;}
+      .chainB {background-color: #297296;}
+      .songB {background-color: #3F7600;}
+      .godB {background-color: #AB2603;}
+      .gameB {background-color: #B89D00;}
+      .hairB {background-color: #9200C7;}
+      .shitB {background-color: #8D3600;}
+      .questionsB {background-color: #2F009D;}
+      .vegetableB {background-color: #828B00;}
+      .topsB {background-color: #00C398;}
+      .dimensionsB {background-color: #FF6200;}
+      .docentB {background-color: #B97CAC;}
+      .thisB {background-color: #00C699;}      
+      #scenes {position: absolute; top: 70px; color:#fff; font-size:30px;}
+      .sceneButton {position:relative; float:left; top: 70px; padding: 5px; color:#fff; font-size:30px;}
+      #chatDisplay {top:200px; position:absolute; color:#fff; font-size:78px;}
+
+      #reports {
+        text-align:right;
+        font-size:18px;
+        position:absolute;
+        top:0px;
+        left:900px;
+      }
+      
+    </style>  
+  </head>
+  <body>
+
+    <div id="chatNumber">CONTROL</div>
+    <div id="chatDisplay"></div>
+    <div id="reports" >
+      <div id="report0">Report 0</div>
+      <div id="report1">Report 1</div>
+      <div id="report2">Report 2</div>
+      <div id="report3">Report 3</div>
+      <div id="report4">Report 4</div>
+      <div id="report5">Report 5</div>
+    </div>
+    <div id="messages"></div>
+    <div id="control">
+      <div class="controlButton" id="start"><label>START</label></div>
+      <div class="controlButton" id="stopKate"><label>STOP: KATE</label></div>
+      <div class="controlButton" id="stopMike"><label>STOP: MIKE</label></div>
+      <div class="controlButton" id="stopBen"><label>STOP: BEN</label></div>
+      <div class="controlButton" id="stopGavin"><label>STOP: GAVIN</label></div>
+      <div class="controlButton" id="stopVin"><label>STOP: VIN</label></div>
+      <div class="controlButton" id="stopLin"><label>STOP: LINDSAY</label></div>
+      <div class="controlButton" id="reset"><label>RESET</label></div>
+      <div class="controlButton" id="clear"><label>CLEAR</label></div>    
+    </div>
+    <div id="scenes"> 
+      <div id="favorite">
+        <div class="sceneButton" id="favoritethings"><label class="favoriteB">FAVORITE THINGS (KATE)</label></div>
+        <div class="sceneButton" id="favoritethingsmike"><label class="favoriteB">FAVORITE THINGS (MIKE)</label></div>
+        <div class="sceneButton" id="favoritethingsvin"><label class="favoriteB">FAVORITE THINGS (VIN)</label></div>
+        <div class="sceneButton" id="favoritethingsben"><label class="favoriteB">FAVORITE THINGS (BEN)</label></div>
+        <div class="sceneButton" id="favoritethingsgavin"><label class="favoriteB">FAVORITE THINGS (GAVIN)</label></div>
+        <div class="sceneButton" id="favoritethingslindsay"><label class="favoriteB">FAVORITE THINGS (LINDSAY)</label></div>
+      </div>
+      <br/>
+      <div id="chains">
+        <div class="sceneButton" id="girlchain"><label class="chainB">GIRL (CHAIN)</label></div>
+        <div class="sceneButton" id="boychain"><label class="chainB">BOY (CHAIN)</label></div>
+        <div class="sceneButton" id="boychainbenvin"><label class="chainB">BOY (CHAIN) BEN/MIKE</label></div>
+        <div class="sceneButton" id="blackchain"><label class="chainB">BLACK (CHAIN)</label></div>
+        <div class="sceneButton" id="whitechain"><label class="chainB">WHITE (CHAIN)</label></div>
+        <div class="sceneButton" id="dreamchain"><label class="chainB">DREAM (CHAIN)</label></div>
+        <div class="sceneButton" id="firechain"><label class="chainB">FIRE (CHAIN)</label></div>
+      </div>
+      <br/>
+      <div id="songs">
+        <div class="sceneButton" id="song"><label class="songB">SONG (MEDIUM)</label></div>
+        <div class="sceneButton" id="songall"><label class="songB">SONG (MEDIUM) - ALL</label></div>
+        <div class="sceneButton" id="songtwoben"><label class="songB">SONG (NAMES) - BEN</label></div>
+        <div class="sceneButton" id="songtwomikelindsay"><label class="songB">SONG (NAMES) - LINDS/MIKE</label></div>
+        <div class="sceneButton" id="songtwo"><label class="songB">SONG (NAMES) - ALL</label></div>
+      </div>
+      <br />
+      <div id="godbody">
+        <div class="sceneButton" id="god"><label class="godB">GOD</label></div>
+        <div class="sceneButton" id="godtwo"><label class="godB">BODY</label></div>
+        <div class="sceneButton" id="godthree"><label class="godB">AMERICA</label></div>
+        <div class="sceneButton" id="godamerica"><label class="godB">MEAT</label></div>
+      </div>
+      <div class="sceneButton" id="gameshow"><label class="gameB">GAME SHOW</label></div>      
+      <div>
+        <div class="sceneButton" id="hairsolo"><label class="hairB">HAIR MIKE</label></div>
+        <div class="sceneButton" id="hairgavin"><label class="hairB">HAIR GAVIN</label></div>
+        <div class="sceneButton" id="hairkate"><label class="hairB">HAIR KATE</label></div>
+        <div class="sceneButton" id="hairvin"><label class="hairB">HAIR VIN</label></div>
+        <div class="sceneButton" id="hairlindsay"><label class="hairB">HAIR LINDS</label></div>
+      </div>
+      <div>
+        <div class="sceneButton" id="questionslindsay"><label class="questionsB">QUESTIONS LINDSAY</label></div>
+        <div class="sceneButton" id="questionsmike"><label class="questionsB">QUESTIONS MIKE</label></div>
+        <div class="sceneButton" id="questionsvin"><label class="questionsB">QUESTIONS VIN</label></div>
+      </div>
+      <div class="sceneButton" id="shitfuck"><label class="shitB">SHIT/FUCK</label></div>
+      <div class="sceneButton" id="vegetables"><label class="vegetableB">VEGETABLES</label></div>
+      <div>
+        <div class="sceneButton" id="tops"><label class="topsB">TOPS</label></div>
+        <div class="sceneButton" id="goodbad"><label class="topsB">TOP/BOTTOM</label></div>
+        <div class="sceneButton" id="bottoms"><label class="topsB">BOTTOMS</label></div>
+      </div>
+      <div class="sceneButton" id="dimensions"><label class="dimensionsB">DIMENSIONS</label></div>
+      <div>
+        <div class="sceneButton" id="artistmaterialslindsaykate"><label class="dimensionsB">ART/MAT LINDS/KATE</label></div>
+        <div class="sceneButton" id="artistmaterialsmikegavin"><label class="dimensionsB">ART/MAT VIN/GAV</label></div>
+        <div class="sceneButton" id="artistmaterials"><label class="dimensionsB">ART/MAT KATE/BEN</label></div>
+      </div>
+      <div class="sceneButton" id="syllablesold"><label>SYLLABLES (ALL)</label></div>
+      <div>
+        <div class="sceneButton" id="docentlindsay"><label class="docentB">DOCENT LINDS</label></div>
+        <div class="sceneButton" id="docentmike"><label class="docentB">DOCENT MIKE</label></div>
+        <div class="sceneButton" id="docentben"><label class="docentB">DOCENT BEN</label></div>
+        <div class="sceneButton" id="docentkate"><label class="docentB">DOCENT KATE</label></div>
+      </div>
+      <div>
+        <div class="sceneButton" id="thisislindsay"><label class="thisB">THIS IS LINDS</label></div>
+        <div class="sceneButton" id="thisismike"><label class="thisB">THIS IS MIKE</label></div>
+        <div class="sceneButton" id="thisisben"><label class="thisB">THIS IS BEN</label></div>
+        <div class="sceneButton" id="thisiskate"><label class="thisB">THIS IS KATE</label></div>
+        <div class="sceneButton" id="thisisvin"><label class="thisB">THIS IS VIN</label></div>
+        <div class="sceneButton" id="thisisgavin"><label class="thisB">THIS IS GAVIN</label></div>
+      </div>
+      <div class="sceneButton" id="names"><label>NAMES</label></div>
+      <div class="sceneButton" id="echo_hung"><label>ECHOES</label></div>
+    </div>
+    <form action="">
+      <input id="m" autocomplete="off" /><button>Send</button>
+    </form>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script>
+      var c = 0;
+      var id = 0;
+      var socket = io();
+
+      $('.controlButton').on("click", function(){
+        console.log("click");
+      });
+      $("#start").on("click", function(){
+        socket.emit('control message', "start");
+      });
+      $("#stopKate").on("click", function(){
+        socket.emit('control message', "stop:0");
+      });
+      $("#stopMike").on("click", function(){
+        socket.emit('control message', "stop:1");
+      });
+      $("#stopBen").on("click", function(){
+        socket.emit('control message', "stop:2");
+      });
+      $("#stopGavin").on("click", function(){
+        socket.emit('control message', "stop:3");
+      });
+      $("#stopVin").on("click", function(){
+        socket.emit('control message', "stop:4");
+      });
+      $("#stopLin").on("click", function(){
+        console.log("Clicked");
+        socket.emit('control message', "stop:5");
+      });
+      $("#reset").on("click", function(){
+        socket.emit('control message', "reset");
+      });
+      $("#clear").on("click", function(){
+        socket.emit('control message', "clear");
+      });
+      $(".sceneButton").on("click", function(){
+        console.log(this.id);
+        socket.emit('control message', "scene:" + this.id);
+      });
+      $("#burst").on("click", function(){
+        socket.emit('control message', "burst");
+      });
+      $('form').submit(function(){
+        socket.emit('control message', $('#m').val());
+        $('#m').val('');
+        return false;
+      });
+
+      socket.on('client report', function(msg) {
+        console.log('client report');
+        $('#report' + msg.id).text(msg.scene + ":" + msg.count + "/" + msg.total);
+      })
+      socket.on('handshake', function(msg) {
+        socket.emit('request control');
+      });
+      socket.on('status message', function(msg){
+        //$('#messages').append($('<div class="message" id="msg' + c + '"">').text(msg));
+        //$('#msg' + c).animate({ left: 2000 }, 1000);
+        $('#chatDisplay').text(msg);
+        c++;
+      });
+    </script>
+
+  </body>
+</html>

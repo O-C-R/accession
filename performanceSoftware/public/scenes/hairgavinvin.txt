@@ -1,0 +1,21 @@
+{
+	"name":"MANUAL hair",
+	"actors":[3,4],
+	"scriptOrder":[0,0],
+	"actorOrder":[3,4],
+	"timing":{
+        "duration":120000000000000000,
+        "delay":10
+    },
+	"playback":{
+		"type":"flat",
+		"order":"random"
+	},
+	"scripts":[
+		{
+			"url":"hair.txt",
+			"actors":[3,4]
+		}
+	]
+
+}

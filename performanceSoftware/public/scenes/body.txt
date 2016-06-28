@@ -1,0 +1,22 @@
+{
+	"name":"MANUAL body",
+	"actors":[0],
+	"scriptOrder":[0],
+	"actorOrder":[0],
+	"timing":{
+        "duration":1200000000,
+        "delay":5
+    },
+	"playback":{
+		"type":"flat”,
+		"order":"random"
+	},
+	"scripts":[
+		{
+			"url":"body.txt",
+			"actors":[0]
+		}
+
+	]
+
+}

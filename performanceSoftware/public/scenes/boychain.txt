@@ -1,0 +1,21 @@
+{
+	"name":"Boy Chain",
+	"actors":[0,2],
+	"scriptOrder":[0,0],
+	"actorOrder":[0,2],
+	"timing":{
+		"duration":120000000,
+		"delay":1
+	},
+	"playback":{
+		"type":"flat"
+	},
+	"scripts":[
+		{
+			"url": "boy_chain.txt",
+			"actors":[0,2]
+		}
+
+	]
+
+}

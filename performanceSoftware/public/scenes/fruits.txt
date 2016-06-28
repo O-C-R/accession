@@ -1,0 +1,22 @@
+{
+	"name":"MANUAL fruits",
+	"actors":[1],
+	"scriptOrder":[0],
+	"actorOrder":[0],
+	"timing":{
+        "duration":12000000000000000,
+        "delay":5
+    },
+	"playback":{
+		"type":"flat",
+		"order":"random"
+	},
+	"scripts":[
+		{
+			"url":"fruits.txt",
+			"actors":[1]
+		}
+
+	]
+
+}

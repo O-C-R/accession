@@ -1,0 +1,22 @@
+{
+	"name":"MANUAL Shit/Fuck",
+	"actors":[0],
+	"scriptOrder":[0],
+	"actorOrder":[0],
+	"timing":{
+        "duration":120000000000000000,
+        "delay":5
+    },
+	"playback":{
+		"type":"flat",
+		"order":"random"
+	},
+	"scripts":[
+		{
+			"url":"Docent_fuckshit.txt",
+			"actors":[0]
+		}
+
+	]
+
+}

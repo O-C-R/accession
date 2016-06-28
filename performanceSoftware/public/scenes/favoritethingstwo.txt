@@ -1,0 +1,25 @@
+{
+	"name":"MANUAL Favorite Things",
+	"actors":[0,4],
+	"scriptOrder":[0,0],
+	"actorOrder":[0,0],
+	"timing":{
+        "duration":12000000000,
+        "delay":20
+    },
+	"playback":{
+		"type":"flat",
+		"order":"random"
+	},
+	"scripts":[
+		{
+			"url":"favorite_things.txt",
+			"actors":[0]
+		},
+		{
+			"url":"favorite_things.txt",
+			"actors":[4]
+		}
+	]
+
+}

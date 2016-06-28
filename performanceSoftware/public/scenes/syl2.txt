@@ -1,0 +1,41 @@
+{
+	"name":"StressPats",
+	"timing":{
+		"duration":120000000000,
+		"delay":2,
+		"speed": 3.2
+	},
+	"playback":{
+		"type":"flat",
+		"solos":[0,1,2,3,4,5]
+	},
+	"actors":[0,1,2,3,4,5],
+	"scriptOrder":[0,1,2,3,4,5],
+	"actorOrder":[0,1,2,3,4,5],
+	"scripts":[
+		{
+			"url":"stress_0.txt",
+			"actors":[0]
+		},
+		{
+			"url":"stress_1.txt",
+			"actors":[1]
+		},
+		{
+			"url":"stress_2.txt",
+			"actors":[2]
+		},
+		{
+			"url":"stress_3.txt",
+			"actors":[3]
+		},
+		{
+			"url":"stress_4.txt",
+			"actors":[4]
+		},
+		{
+			"url":"stress_5.txt",
+			"actors":[5]
+		}
+	]
+}

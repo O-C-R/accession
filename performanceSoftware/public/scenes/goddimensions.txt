@@ -1,0 +1,21 @@
+{
+	"name":"God Dimensions",
+	"timing":{
+		"duration":1200000000000,
+		"delay":10
+	},
+	"playback":{
+		"type":"sequence"
+	},
+	"actors":[0,1],
+	"scriptOrder":[0,0],
+	"actorOrder":[0,1],
+	"scripts":[
+		{
+			"url":"god_jesus_dimensions.txt",
+			"actors":[0,1]
+		}
+
+	]
+
+}

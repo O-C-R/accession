@@ -1,0 +1,14 @@
+{
+	"name":"Girl Chain",
+	"actors":[0,1],
+	"scriptOrder":[0],
+	"actorOrder":[0,[0,1]],
+	"scripts":[
+		{
+			"url":"girl_chain.txt",
+			"actors":[0,1]
+		}
+
+	]
+
+}

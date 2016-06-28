@@ -1,0 +1,21 @@
+{
+	"name":"America",
+	"timing":{
+		"duration":120000000000000,
+		"delay":5,
+		"speed":1
+	},
+	"playback":{
+		"type":"sequence"
+	},
+	"actors":[0],
+	"scriptOrder":[0],
+	"actorOrder":[0],
+	"scripts":[
+		{
+			"url":"america.txt",
+			"actors":[0]
+		}
+	]
+
+}

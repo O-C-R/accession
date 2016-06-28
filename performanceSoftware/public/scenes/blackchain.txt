@@ -1,0 +1,21 @@
+{
+	"name":"Black Chain",
+	"actors":[3,5],
+	"scriptOrder":[0,0],
+	"actorOrder":[3,5],
+	"timing":{
+		"duration":120000000,
+		"delay":1
+	},
+	"playback":{
+		"type":"flat"
+	},
+	"scripts":[
+		{
+			"url": "black_chain.txt",
+			"actors":[5,3]
+		}
+
+	]
+
+}

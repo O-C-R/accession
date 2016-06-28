@@ -1,0 +1,21 @@
+{
+	"name":"Dog Chain",
+	"actors":[2,5],
+	"scriptOrder":[0,0],
+	"actorOrder":[2,5],
+	"timing":{
+		"duration":1200000000,
+		"delay":5
+	},
+	"playback":{
+		"type":"sequence"
+	},
+	"scripts":[
+		{
+			"url": "dog_chain.txt",
+			"actors":[2,5]
+		}
+
+	]
+
+}

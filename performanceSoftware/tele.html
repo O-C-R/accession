@@ -1,0 +1,367 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>TelePrompter</title>
+
+		<meta name="author" content="Peter Schmalfeldt">
+		<meta name="description" content="HTML5, CSS3 &amp; Javascript Based TelePrompter">
+		<meta name="keywords" content="TelePrompter, HTML, HTML5, CSS, CSS3, Javascript">
+
+		<!-- Mobile Specific Meta Tags -->
+		<meta name="viewport" content="width=1024, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/jquery-ui-1.8.21.custom.css" />
+		<link rel="stylesheet" href="css/style.css?v=0.6.1">	
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+
+		<style>
+	     .actor0 {color:#FF0000;}
+	     .actor1 {color:#00FF00;}
+	     .actor2 {color:#0000FF;}
+	     .actor3 {color:#FF00FF;}
+	     .actor4 {color:#FFFF00;}
+	     .actor5 {color:#00FFFF;}
+	     .inactiveActor {opacity:0.4;}
+	      
+	    </style>
+	</head>
+	<body id="gui">
+		<div class="broadcast">This is a broadcast.</div>
+		<div class="monitor">
+			<div class="monitorDisplay">Dave McDavid Daniels Marks</div>
+		</div>
+		<header>
+			<h1><i class="icon icon-bullhorn"></i> <span id="chatNumber">#</span> <span id="sceneName">waiting</span> </h1>
+		</header>
+
+		<article>
+			<div class="overlay">
+				<div class="top"></div>
+				<div class="bottom" id="bottomOverlay"></div>
+			</div>
+			<div class="teleprompter" id="teleprompter">
+
+			</div>
+			<i class="icon-play marker"></i>
+		</article>
+		<footer>
+
+		</footer>
+
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="/js/ntp.js"></script>
+		<script src="js/jquery-2.1.3.min.js"></script>
+
+		<script src="js/jquery-ui-1.8.21.custom.min.js"></script>
+		<script src="js/jquery.timer.js"></script>
+		<script src="js/jquery.cookie.js"></script>
+        <script src="js/jscolor.js"></script>
+		<!--script src="js/script.js?v=0.6.1"></script-->
+
+		<script>
+			var globalDate = new Date();
+			var lastTime = globalDate.getTime();
+			var timer;
+			var queue = [];
+			var qIndex = 0;
+			var startTime;
+			var timerTotal = 0.0;
+
+			var displaying = false;
+
+			var solo = false;
+
+			function startTimer() {
+				console.log("START TIMER")
+				clearInterval(delayTimer);
+	        	$('.marker, .overlay').fadeIn('slow');
+	        	startTime = new Date();
+	        	lastTime = globalDate.getTime();
+
+
+	        	timer = setInterval(function() {
+
+					var now = new Date();
+					var elapsed = now.getTime() - startTime.getTime();
+					elapsed *= speedFactor;
+
+					var next = queue[qIndex];
+					sizeToTopElement(next);
+					if (next.started == null) {
+						if (next.text().indexOf('DISPLAY-') != -1) {
+							textDisplay(next.text().split("DISPLAY-")[1]);
+						} else {
+							if (displaying) {
+								hideDisplay();
+							}
+						}
+						next.started = true;
+						var msg = {
+							scene:$('#sceneName').text(),
+							id:id,
+							message:next.text(),
+							count:qIndex,
+							total:queue.length
+						}
+						if (next.data('isActor')) report(msg);
+					}
+					//$('#sceneName').text(elapsed + ":" + (timerTotal + (parseFloat(next.data('time').duration) * 1000)));
+
+					if (elapsed > timerTotal + (parseFloat(next.data('time').duration) * 1000)) {
+						var bleed = (timerTotal + (parseFloat(next.data('time').duration) * 1000)) - elapsed;
+						qIndex ++;
+						sizeToTopElement(next);
+						//console.log(qIndex + ":" + queue.length);
+						if (qIndex == queue.length) {
+							stopTimer();
+							endScene();
+						} else {
+							advance();
+						}
+	
+						//timerTotal = startTime.getTime() - now.getTime();
+						//lastTime = now.getTime();
+						timerTotal = (parseFloat(next.data('time').duration) * 1000) + timerTotal;// + bleed;
+					}
+
+				}, 10);
+	        }
+
+	        function endScene() {
+	        	console.log("END SCENE");
+	        	hideDisplay();
+	        	//socket.emit('scene finished', scene);
+	        }
+
+	        function stopTimer() {
+	        	$('.marker, .overlay').fadeOut('slow');
+	        	console.log("TIMER STOPPED");
+	        	clearInterval(timer);
+	        	qIndex = 0;
+	        	timerTotal = 0;
+	        }
+	        function advance() {
+	        	var next = queue[qIndex - 1];
+	        	var h = next.height() + 31;
+	        	//next.text(h);
+	        	$('article').finish().animate({scrollTop: "+=" + h + "px" }, 400, 'linear');
+	        }
+
+	        //Display
+
+	        function showDisplay() {
+	        	$(".monitor").show();
+	        }
+
+	        function hideDisplay() {
+				$(".monitor").hide();
+				displaying = false;
+	        }
+
+	        function textDisplay(txt) {
+	        	if (!displaying) showDisplay();
+	        	$(".monitorDisplay").html(txt);
+	        	displaying = false;
+	        }
+
+	        function sizeToTopElement(e) {
+
+	        	var h = e.height() + 30;
+	        	var otop = 64 + 115;//$('.overlay.top').height() + $('.overlay.top').position().top;
+	        	var btop = otop + h;
+
+	        	//console.log("SIZE:" + h);
+	        	$('#bottomOverlay').stop().animate({top:btop + "px"}, 200);
+	        }
+
+	        function addLine(msg) {
+	        	$('.teleprompter').append($('<div class="scriptLine" id="msg' + c + '"">').text(msg.message));
+		        $('#msg' + c).data('time', msg.time);
+		        
+		        var chk = false;
+		        var actorCheck = false;
+		        //console.log(msg.actors + ":" + msg.message);
+		        for (var i =0 ; i < msg.actors.length; i++) {
+		        	//console.log(msg.actors[i].length);
+		        	//console.log(queue.length + ":" + msg.actors);
+		        	if (msg.actors[i].length == undefined) {
+			        	if (msg.actors[i] == id) {
+			        		$('#msg' + c).addClass('actor' + msg.actors[i]);
+			        		chk = true;
+			        		$('#msg' + c).data('isActor', true);
+			        	}
+		       	    } else {
+		       	    	for(var j = 0; j < msg.actors[i].length; j++) {
+		       	    		if (msg.actors[i][j] == id) {
+				        		$('#msg' + c).addClass('actor' + msg.actors[i][j]);
+				        		chk = true;
+				        		$('#msg' + c).data('isActor', true);
+				        	}
+		       	    	}
+
+		       	    }
+		    	}
+		    	if (!chk) $('#msg' + c).addClass('inactiveActor');
+
+		    	//Check solo
+		    	//console.log("SOLO?" + msg.solo);
+		    	if (solo && !chk) {
+		    		$('#msg' + c).remove();
+		    	} else {
+		    		queue.push($('#msg' + c));
+		    	}
+
+
+		        c++;
+	        }
+
+	        function report(msg) {
+	        	socket.emit('client report', msg);
+	        }
+
+	        function stopScene() {
+	        	//$('#sceneName').text('WAITING');
+		        $('.teleprompter').empty();
+		        $('article').stop().animate({scrollTop: 0}, 100);
+		        hideDisplay();
+		        queue = [];
+		        stopTimer();
+		        clearInterval(delayTimer);
+	        }
+	        
+
+	      var c = 0;
+	      var id = -1;
+	      var socket = io();
+	      var speedFactor = 1.0;
+	      var delayTimer;
+	      var reporting = true;
+
+	      var scene = "waiting";
+	      var offset;
+
+	      if($.cookie('moma_client_id')) {
+	      	//id = $.cookie('moma_client_id');
+	      	console.log("SET ID FROM COOKIE:" + id);
+	      }
+
+	      socket.on('connect',function() {
+     		 console.log('Client has connected to the server!');
+     		 ntp.init(socket);
+     		 //alert(ntp.offset());
+   		  });
+
+	      socket.on('handshake', function(msg) {
+	        socket.emit('request connection', id);
+	      });	
+
+	      socket.on('set id', function(msg) {
+	        id = msg;
+	        $.cookie('moma_client_id', msg, { expires: 1 });
+	        $('#chatNumber').addClass('actor' + id);
+	        $('#chatNumber').text(id);
+	      });
+
+	      socket.on('set scene title', function(msg) {
+	        scene = msg;
+	        $('#sceneName').text(scene);
+	      });
+
+	      socket.on('display request', function(msg) {
+	      	console.log("DISPLAY:" + msg);
+	        textDisplay(msg);
+	      });
+
+	      socket.on('reset request', function(msg) {
+	        $('article').stop().animate({scrollTop: 0}, 100);
+	        hideDisplay();
+	        stopTimer();
+	        solo = false;
+	      });
+
+	      socket.on('clear request', function(msg) {
+	      	$('#sceneName').text('WAITING');
+	        $('.teleprompter').empty();
+	        $('article').stop().animate({scrollTop: 0}, 100);
+	        hideDisplay();
+	        queue = [];
+	        stopTimer();
+	        solo = false;
+	        //endScene();
+	      });
+
+	      socket.on('stop request', function(msg) {
+	      	stopScene();
+	      });
+
+	      socket.on('set speed', function(msg) {
+	        speedFactor = msg;
+	        clearInterval(delayTimer);
+	      });
+
+	      socket.on('set solo', function(msg) {
+	        solo = msg;
+	      });
+
+	      socket.on('start timer', function(msg) {
+	      	console.log("START TIMER WITH DELAY OF " + msg);
+	      	delayTimer = setInterval(startTimer, msg * 1000);
+	      });
+
+	      socket.on('reassign', function(msg) {
+	      	console.log('reassign');
+	      	$('#chatNumber').removeClass();
+	      	id = -1;
+	      	socket.emit('request connection', id);
+	      })
+
+	      socket.on('broadcast', function(msg) {
+	      	console.log('recieved broadcast request:' + msg);
+	      	$('.broadcast').text(msg);
+	      	$('.broadcast').stop().animate({opacity:1}, 200, "swing", function() {
+	      		console.log("fade in done.");
+	      		$('.broadcast').delay(30000).animate({opacity:0}, 200);
+	      	});
+	      })
+
+	      socket.on('script lines', function(msgs) {
+	      	stopScene();
+	      	//console.log('RECIEVED ' + msgs.length + ' LINES');
+	      	for(var i = 0; i < msgs.length; i++) {
+	      		//console.log(msgs[i].message);
+	      		addLine(msgs[i]);
+	      	}
+	      	console.log('Q LENGTH: ' + queue.length);
+
+	      	var msg = {
+				scene:$('#sceneName').text(),
+				id:id,
+				message:'RECEIVED LINES',
+				count:0,
+				total:queue.length
+			}
+
+	      	socket.emit('client report', msg);
+	      })
+
+
+	      socket.on('script line', function(msg){
+	        addLine(msg);
+
+	        //start_teleprompter();
+	      });
+
+	      hideDisplay();
+	      
+	    </script>
+
+
+		
+	</body>
+</html>

@@ -1,0 +1,22 @@
+{
+	"name":"White Chain",
+	"actors":[0,1],
+	"scriptOrder":[0,0],
+	"actorOrder":[0,1],
+	"timing":{
+		"duration":12000000000000000000000,
+		"delay":5,
+		"speed":1
+	},
+	"playback":{
+		"type":"flat"
+	},
+	"scripts":[
+		{
+			"url": "white_chain.txt",
+			"actors":[0,1]
+		}
+
+	]
+
+}

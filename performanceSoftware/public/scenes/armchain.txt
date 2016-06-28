@@ -1,0 +1,21 @@
+{
+	"name":"Arm Chain",
+	"actors":[0,3],
+	"scriptOrder":[0],
+	"actorOrder":[0,3],
+	"timing":{
+		"duration":12000000000000000,
+		"delay":5
+	},
+	"playback":{
+		"type":"sequence"
+	},
+	"scripts":[
+		{
+			"url": "arm_chain.txt",
+			"actors":[0,3]
+		}
+
+	]
+
+}

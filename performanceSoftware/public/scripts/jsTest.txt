@@ -1,0 +1,1 @@
+DISPLAY-MONKEYS!!!<script>$('.monitor').css('background-color', '#FFF');$('.monitorDisplay').css('color', '#000'); </script>

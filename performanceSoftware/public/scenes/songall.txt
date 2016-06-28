@@ -1,0 +1,21 @@
+{
+	"name":"MANUAL Medium Song",
+	"actors":[1,2,3,4,5],
+	"scriptOrder":[0,0,0,0,0],
+	"actorOrder":[0,1,2,3,4],
+	"timing":{
+        "duration":120000000000000,
+        "delay":5
+    },
+	"playback":{
+		"type":"flat"
+	},
+	"scripts":[
+		{
+			"url":"song2015.txt",
+			"actors":[1,2,3,4,5]
+		}
+
+	]
+
+}

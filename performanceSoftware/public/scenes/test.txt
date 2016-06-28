@@ -1,0 +1,26 @@
+{
+	"name":"Test Docent Tour",
+	"timing":{
+		"duration":3000000000000000,
+		"delay":30
+	},
+	"playback":{
+		"type":"flat"
+	},
+	"actors":[0,1,2],
+	"scriptOrder":[0,1,2],
+	"actorOrder":[0,1,2],
+	"scripts":[
+		{
+			"url":"Docent_longTitles.txt"
+		},
+		{
+			"url":"Docent_questions.txt"
+		},
+		{
+			"url":"Docent_we.txt"
+		}
+
+	]
+
+}

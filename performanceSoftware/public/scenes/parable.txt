@@ -1,0 +1,21 @@
+{
+	"name":"MANUAL Parable",
+	"actors":[0],
+	"scriptOrder":[0],
+	"actorOrder":[0],
+	"timing":{
+        "duration":12000000000,
+        "delay":5
+    },
+	"playback":{
+		"type":"flat"
+	},
+	"scripts":[
+		{
+			"url":"parablethree.txt",
+			"actors":[0]
+		}
+
+	]
+
+}

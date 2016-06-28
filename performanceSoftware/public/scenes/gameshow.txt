@@ -1,0 +1,24 @@
+{
+	"name":"Gameshow",
+	"actors":[1,4],
+	"scriptOrder":[0,1],
+	"actorOrder":[0,1],
+	"timing":{
+		"duration":20000000000000,
+		"delay":5
+	},
+	"playback":{
+		"type":"flat"
+	},
+	"scripts":[
+		{
+			"url": "gameshow_questions.txt",
+			"actors":[1]
+		},
+		{
+			"url": "gameshowanswers.txt",
+			"actors":[4]
+		}
+	]
+
+}

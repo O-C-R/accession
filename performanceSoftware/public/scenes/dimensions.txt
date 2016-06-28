@@ -1,0 +1,21 @@
+{
+	"name":"Dimensions",
+	"actors":[1,4],
+	"scriptOrder":[0,0],
+	"actorOrder":[1,4],
+	"timing":{
+		"duration":120000000,
+		"delay":5
+	},
+	"playback":{
+		"type":"sequence"
+	},
+	"scripts":[
+		{
+			"url": "dimensions.txt",
+			"actors":[1,4]
+		}
+
+	]
+
+}

@@ -1,0 +1,22 @@
+{
+	"name":"MANUAL flowers",
+	"actors":[3],
+	"scriptOrder":[0],
+	"actorOrder":[3],
+	"timing":{
+        "duration":1200000000000000,
+        "delay":5
+    },
+	"playback":{
+		"type":"flat",
+		"order":"random"
+	},
+	"scripts":[
+		{
+			"url":"flowers.txt",
+			"actors":[3]
+		}
+
+	]
+
+}

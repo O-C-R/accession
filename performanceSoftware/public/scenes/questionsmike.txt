@@ -1,0 +1,21 @@
+{
+	"name":"MANUAL Questions",
+	"actors":[1],
+	"scriptOrder":[0],
+	"actorOrder":[0],
+	"timing":{
+        "duration":120000000000000000,
+        "delay":5
+    },
+	"playback":{
+		"type":"flat"
+	},
+	"scripts":[
+		{
+			"url":"Docent_questions.txt",
+			"actors":[1]
+		}
+
+	]
+
+}

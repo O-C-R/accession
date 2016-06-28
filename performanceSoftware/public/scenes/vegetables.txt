@@ -1,0 +1,22 @@
+{
+	"name":"MANUAL vegetables",
+	"actors":[2],
+	"scriptOrder":[0],
+	"actorOrder":[2],
+	"timing":{
+        "duration":120000000000000000000,
+        "delay":5
+    },
+	"playback":{
+		"type":"flat",
+		"order":"random"
+	},
+	"scripts":[
+		{
+			"url":"vegetables.txt",
+			"actors":[2]
+		}
+
+	]
+
+}

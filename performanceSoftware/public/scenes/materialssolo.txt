@@ -1,0 +1,22 @@
+{
+	"name":"MANUAL materials",
+	"actors":[5],
+	"scriptOrder":[0],
+	"actorOrder":[0],
+	"timing":{
+        "duration":120000000000000000,
+        "delay":5
+    },
+	"playback":{
+		"type":"flat",
+		"order":"random"
+	},
+	"scripts":[
+		{
+			"url":"materials.txt",
+			"actors":[5]
+		}
+
+	]
+
+}

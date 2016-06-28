@@ -1,0 +1,21 @@
+{
+	"name":"Cat Chain",
+	"actors”:[0,1],
+	"scriptOrder":[0],
+	"actorOrder":[0,1],
+	"timing":{
+		"duration":12000000000,
+		"delay":5
+	},
+	"playback":{
+		"type":"sequence"
+	},
+	"scripts":[
+		{
+			"url": "cat_chain.txt",
+			"actors":[0,1]
+		}
+
+	]
+
+}

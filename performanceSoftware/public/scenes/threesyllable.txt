@@ -1,0 +1,21 @@
+{
+	"name":"Syllables",
+	"timing":{
+		"duration":1200000000000000000,
+		"delay":10
+	},
+	"playback":{
+		"type":"sequence"
+	},
+	"actors":[0,1,2],
+	"scriptOrder":[0,0,0],
+	"actorOrder":[0,1,2],
+	"scripts":[
+		{
+			"url":"syllables2014.txt",
+			"actors":[0,1,2]
+		}
+
+	]
+
+}

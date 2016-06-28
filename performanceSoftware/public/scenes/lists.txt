@@ -1,0 +1,33 @@
+{
+	"name":"Assorted Lists",
+	"timing":{
+		"duration":3000000000000000,
+		"delay":30
+	},
+	"playback":{
+		"type":"sequence"
+	},
+	"actors":[0,1,2,3,4,5],
+	"scriptOrder":[0,1,2,3,0,1,2,3],
+	"actorOrder":[0,1,2,3,4,5],
+	"scripts":[
+		{
+			"url":"god.txt",
+			"actors":[0,1]
+		},
+		{
+			"url":"america.txt",
+			"actors":[0,1]
+		},
+		{
+			"url":"meats.txt",
+			"actors":[0,1]
+		},
+		{
+			"url":"body.txt",
+			"actors":[0,1]
+		}
+
+	]
+
+}

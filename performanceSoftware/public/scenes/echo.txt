@@ -1,0 +1,21 @@
+{
+	"name":"Echo (data) for works hung in the show",
+	"timing":{
+		"duration":120000000000,
+		"delay":2,
+		"speed": 0.7
+	},
+	"playback":{
+		"type":"flat"
+	},
+	"actors":[0,1,2,3,4,5],
+	"scriptOrder":[0,0,0,0,0,0],
+	"actorOrder":[0,1,2,3,4,5],
+	"scripts":[
+		{
+			"url":"echo_flat.txt",
+			"actors":[0,1,2,3,4,5]
+		}
+	]
+
+}

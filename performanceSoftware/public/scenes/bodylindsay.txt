@@ -1,0 +1,21 @@
+{
+	"name":"Body",
+	"timing":{
+		"duration":120000000000000,
+		"delay":5,
+		"speed":1
+	},
+	"playback":{
+		"type":"flat"
+	},
+	"actors":[5],
+	"scriptOrder":[0],
+	"actorOrder":[5],
+	"scripts":[
+		{
+			"url":"body.txt",
+			"actors":[5]
+		}
+	]
+
+}

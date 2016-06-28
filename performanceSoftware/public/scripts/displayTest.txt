@@ -1,0 +1,5 @@
+~0;10:DISPLAY-This is a display.
+~0;10:DISPLAY-Wah.
+~0;10:DISPLAY-Whooh.
+~0;10:DISPLAY-Deek.
+~0;10:DISPLAY-mah.
