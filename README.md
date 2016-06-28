@@ -26,6 +26,10 @@ input: your search string
 extension: how many words longer or shorter you'd like the returned objects(s) to be
 weights: custom adjustment to the weightings applied to the NLP factors. *pattern*,*parts of speech*,*stressing*,*syllables*
 
+example:
+
+http://localhost:12892/match/artworks/test%20toy%20for%20boys%20and%20girls/0/0,0,1,0
+
 ##Installing the API on your own machine
 
 1. Install node.js
