@@ -258,7 +258,7 @@ There are two large files in the repo - ArtistsNLP.json and ArtworksNLP.json. Yo
 
 ##Preparing data
 
-If MoMA updates their data files, of if you'd like to convert this tool to work for your own text corpus, take a look at prep-data.js, which performs all of the NLP analysis and exports JSON files in the proper formats.
+If MoMA updates their data files, or if you'd like to convert this tool to work for your own text corpus, take a look at prep-data.js, which performs all of the NLP analysis and exports JSON files in the proper formats.
 
 ##Credits
 
