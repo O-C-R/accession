@@ -54,9 +54,11 @@ http://localhost:12892/match/artworks?input=go%20fish&format=tombstone
 By requesting 'go fish' we ended up with 'Soap Dish'. Let's try a couple more:
 
 'Highway to the Danger Zone' becomes 'Entrance to the Banquet Hall':
+
 http://localhost:12892/match/artworks?input=highway%20to%20the%20danger%20zone&format=tombstone
 
 'Tit for Tat' becomes 'Food for Thought':
+
 http://localhost:12892/match/artworks?input=tit%20for%20tat&format=tombstone
 
 If we want to see more matches, we can ask for a higher max number of answers:
@@ -76,9 +78,57 @@ So 'Tit for Tat' ends up giving us:
 9. View from Bed, Dawn Clements, 2003, Ballpoint pen on cut-and-pasted paper on canvas
 10. Tease for Two, Robert McKimson, 1965, 35mm film
 
+We can do the same thing for artists:
 
+http://localhost:12892/match/artists?input=Donald%20Trump
 
+Thus finding out that the dead artist most likely to be mistaken for Donald Trump is Swiss illustrator Donald Brun. Who knew?
 
+You'll notice that the matches that return are all the exact same number of words long as the input phrase that we use. What if we want slightly longer or slightly shorter ones?
+
+A shorter version of 'Highway to the Danger Zone':
+
+http://localhost:12892/match/artworks?input=highway%20to%20the%20danger%20zone&format=tombstone&extension=-1
+
+A longer version of 'Tit for Tat':
+
+http://localhost:12892/match/artworks?input=tit%20for%20tat&format=tombstone&extension=1
+
+The algorithm that gives us back matches considers four things:
+1. The *pattern* - the actual phrase that we input and the letters that make it up.
+2. The *parts of speech* - the grammatical make-up of the phrase
+3. The *stressing pattern* - how the phrase is spoken; where emphasis is
+4. The *syllables* that make up the phrase
+
+Our API allows us to change the priority that is given to each of these parts by adjusting some numbers that we call weights. For example the 'Soap Dish' example that we started with, which returned 'Soap Dish' uses the default weighting of 1,1,1,1:
+
+http://localhost:12892/match/artworks?input=go%20fish&format=tombstone
+
+If we change the weighting to focus only on parts of speech, we get a different, more nonsensical result ('Sleep (excerpt)'):
+
+http://localhost:12892/match/artworks?input=go%20fish&format=tombstone&weights=0,1,0,0
+
+Likewise if we change our 'Tit for Tat' example which returned 'Food for Thought' to focus on the pattern and syllables, we get a different result ('We for Not'):
+
+http://localhost:12892/match/artworks?input=tit%20for%20tat&format=tombstone&weights=1,0,0,1
+
+###Reading the Answers
+
+If you are a human reading the results of this API, you probably want to use the *tombstone* format that we've been using so far in our examples.
+
+But if you are actually using the API as it is intended, for a piece of software to talk to it, you'll probably want to use the JSON format. 
+
+Finally, if you are the type of person who gets frustrated easily with text, you can ask for artwork results (not artists!) to be returned as images. Please note that only a fraction (~30%) of the database has images available, so this format will give you inherently different results than the other formats. 
+
+###Uh... So What Can I **Do** With This?
+
+####Write a Poem
+
+####Compose a Song
+
+####Make a Stream of Conciousness Collage
+
+####Something Actually Useful
 
 
 ##Using the API (For data people)

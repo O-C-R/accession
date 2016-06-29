@@ -42,7 +42,7 @@ app.get('/chain/:corpus/', function(req, res){
 
   function getLoop(input, corpus) {
     var link = moma.getWordMatches(decodeURIComponent(input), corpus, 1, "1,0.5,0,1", 1, false);
-    outs.push(link);
+    outs.push(link.results[0]);
     c++;
     if (c < loops) {
       console.log(link)
@@ -50,7 +50,7 @@ app.get('/chain/:corpus/', function(req, res){
     }
   }
   getLoop(input, req.params.corpus);
-  res.send(outs);
+  res.send(formatOut({"query":input, "corpus":corpus, "results":outs}, format, req.params.corpus));
 });
 
 function formatOut(data, mode, corpus) {
