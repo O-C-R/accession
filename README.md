@@ -51,10 +51,7 @@ Location: query *?weight=1,1,1,1*
 **input**  format
 Location: query *?format=JSON*
 - Return format of the API response
-- Valid formats are:
-..* JSON
-..* tombstone
-..* image
+- Valid formats are: *JSON, tombstone, image*
 
 ###Examples:
 
