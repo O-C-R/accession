@@ -11,13 +11,15 @@ This repository hosts some data ephemera from the performance, as well as a newl
 
 An assortment of files that resulted from the project can be found in the performanceSoftware directory. This whole directory contains the ill-commented application that we used to suynchronize the iPAd displays that the performers used.
 
-Probably the most interesting things are in performanceSoftware/public/scripts.
+Probably the most interesting things are in performanceSoftware/public/scripts. If you came here for the list of artworks with profanity in their titles, or those with vegetables, this is where you should start. 
 
 Please note that we can't and won't provide any support for the things that are in this directory. Sorry.
 
 # API
 
-##Using the API
+##Using the API (For non-experts)
+
+##Using the API (For data people)
 
 http://localhost:12892/match/*corpus*/*input*/*extension*/*weights*
 
