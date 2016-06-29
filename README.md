@@ -52,17 +52,17 @@ Location: query *?weight=1,1,1,1*
 Location: query *?format=JSON*
 - Return format of the API response
 - Valid formats are:
-*JSON
-*tombstone
-*image
+..JSON
+..tombstone
+..image
 
 ###Examples:
 
-http://localhost:12892/match/artworks?input=big%20bird
-http://localhost:12892/match/artworks?input=big%20bird&extension=1
-http://localhost:12892/match/artworks?input=big%20bird&weights=1,0,0,1
-http://localhost:12892/match/artworks?input=big%20bird&format=image
-http://localhost:12892/match/artworks?input=big%20bird&max=20&format=tombstone
+- http://localhost:12892/match/artworks?input=big%20bird
+- http://localhost:12892/match/artworks?input=big%20bird&extension=1
+- http://localhost:12892/match/artworks?input=big%20bird&weights=1,0,0,1
+- http://localhost:12892/match/artworks?input=big%20bird&format=image
+- http://localhost:12892/match/artworks?input=big%20bird&max=20&format=tombstone
 
 
 
