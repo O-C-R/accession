@@ -45,25 +45,25 @@ The core thing that this API can do is to provide lists of artowrks or artists t
 
 It's probably easier to give an example. Let's find an artwork whose title sounds like the phrase 'go fish':
 
-http://localhost:12892/match/artworks?input=go%20fish
+http://accession.ocr.nyc/match/artworks?input=go%20fish
 
 If you try this in your browser, you'll get a pile of unreadable data on your screen. This is JSON, and we'll get to it later; for now we can change that URL a bit to return the type of information we might expect to read on a museum label:
 
-http://localhost:12892/match/artworks?input=go%20fish&format=tombstone
+http://accession.ocr.nyc/match/artworks?input=go%20fish&format=tombstone
 
 By requesting 'go fish' we ended up with 'Soap Dish'. Let's try a couple more:
 
 'Highway to the Danger Zone' becomes 'Entrance to the Banquet Hall':
 
-http://localhost:12892/match/artworks?input=highway%20to%20the%20danger%20zone&format=tombstone
+http://accession.ocr.nyc/match/artworks?input=highway%20to%20the%20danger%20zone&format=tombstone
 
 'Tit for Tat' becomes 'Food for Thought':
 
-http://localhost:12892/match/artworks?input=tit%20for%20tat&format=tombstone
+http://accession.ocr.nyc/match/artworks?input=tit%20for%20tat&format=tombstone
 
 If we want to see more matches, we can ask for a higher max number of answers:
 
-http://localhost:12892/match/artworks?input=tit%20for%20tat&format=tombstone&max=10
+http://accession.ocr.nyc/match/artworks?input=tit%20for%20tat&format=tombstone&max=10
 
 So 'Tit for Tat' ends up giving us:
 
@@ -80,7 +80,7 @@ So 'Tit for Tat' ends up giving us:
 
 We can do the same thing for artists:
 
-http://localhost:12892/match/artists?input=Donald%20Trump
+http://accession.ocr.nyc/match/artists?input=Donald%20Trump
 
 Thus finding out that the dead artist most likely to be mistaken for Donald Trump is Swiss illustrator Donald Brun. Who knew?
 
@@ -88,11 +88,11 @@ You'll notice that the matches that return are all the exact same number of word
 
 A shorter version of 'Highway to the Danger Zone':
 
-http://localhost:12892/match/artworks?input=highway%20to%20the%20danger%20zone&format=tombstone&extension=-1
+http://accession.ocr.nyc/match/artworks?input=highway%20to%20the%20danger%20zone&format=tombstone&extension=-1
 
 A longer version of 'Tit for Tat':
 
-http://localhost:12892/match/artworks?input=tit%20for%20tat&format=tombstone&extension=1
+http://accession.ocr.nyc/match/artworks?input=tit%20for%20tat&format=tombstone&extension=1
 
 The algorithm that gives us back matches considers four things:
 1. The *pattern* - the actual phrase that we input and the letters that make it up.
@@ -102,15 +102,15 @@ The algorithm that gives us back matches considers four things:
 
 Our API allows us to change the priority that is given to each of these parts by adjusting some numbers that we call weights. For example the 'Soap Dish' example that we started with, which returned 'Soap Dish' uses the default weighting of 1,1,1,1:
 
-http://localhost:12892/match/artworks?input=go%20fish&format=tombstone
+http://accession.ocr.nyc/match/artworks?input=go%20fish&format=tombstone
 
 If we change the weighting to focus only on parts of speech, we get a different, more nonsensical result ('Sleep (excerpt)'):
 
-http://localhost:12892/match/artworks?input=go%20fish&format=tombstone&weights=0,1,0,0
+http://accession.ocr.nyc/match/artworks?input=go%20fish&format=tombstone&weights=0,1,0,0
 
 Likewise if we change our 'Tit for Tat' example which returned 'Food for Thought' to focus on the pattern and syllables, we get a different result ('We for Not'):
 
-http://localhost:12892/match/artworks?input=tit%20for%20tat&format=tombstone&weights=1,0,0,1
+http://accession.ocr.nyc/match/artworks?input=tit%20for%20tat&format=tombstone&weights=1,0,0,1
 
 ###Reading the Answers
 
@@ -139,7 +139,7 @@ In our performance, we used a series of what we called 'title chains' - lists of
 
 You can do this manually with 10 calls to the API using the 'extension' parameter. But we liked this mechanism so much that we made an endpoint for it. To get a chain for 'Donald Trump':
 
-http://localhost:12892/chain/artworks?input=Donald%20Trump&format=tombstone
+http://accession.ocr.nyc/chain/artworks?input=Donald%20Trump&format=tombstone
 
 ####Compose a Song
 
@@ -186,7 +186,7 @@ Just kidding. There's nothing actually useful you can do with this API.
 
 ###Base URL Construction:
 
-http://localhost:12892/*mode*/*corpus*/
+http://accession.ocr.nyc/*mode*/*corpus*/
 
 - mode: 'match' or 'chain'
 - corpus: 'artists' or 'artworks'
@@ -218,11 +218,11 @@ Location: query *?format=JSON*
 
 ###Examples:
 
-- http://localhost:12892/match/artworks?input=big%20bird
-- http://localhost:12892/match/artworks?input=big%20bird&extension=1
-- http://localhost:12892/match/artworks?input=big%20bird&weights=1,0,0,1
-- http://localhost:12892/match/artworks?input=big%20bird&format=image
-- http://localhost:12892/match/artworks?input=big%20bird&max=20&format=tombstone
+- http://accession.ocr.nyc/match/artworks?input=big%20bird
+- http://accession.ocr.nyc/match/artworks?input=big%20bird&extension=1
+- http://accession.ocr.nyc/match/artworks?input=big%20bird&weights=1,0,0,1
+- http://accession.ocr.nyc/match/artworks?input=big%20bird&format=image
+- http://accession.ocr.nyc/match/artworks?input=big%20bird&max=20&format=tombstone
 
 
 ##Installing the API on your own machine
@@ -230,7 +230,7 @@ Location: query *?format=JSON*
 1. Install node.js
 2. npm install
 3. node ocr-app.js
-4. access endpoints at localhost:12892
+4. access endpoints at accession.ocr.nyc
 
 ##Preparing data
 
