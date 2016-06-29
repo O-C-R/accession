@@ -18,26 +18,25 @@ var app = express();
 //API CALLS
 
 //MATCH
-app.get('/match/:corpus/:input/:extension/:weights/:max', function(req, res){
-  var weightList = req.params.weights;
-  res.send(JSON.stringify(moma.getWordMatches(decodeURIComponent(req.params.input), req.params.corpus, req.params.extension, weightList, req.params.max, false)), null, 4);
-});
+app.get('/match/:corpus/', function(req, res){
+  console.log(req.query);
+  var input = req.query.input;
+  var extension = req.query.extension ? req.query.extension:0;
+  var weights = req.query.weights ? req.query.weights:"1,1,1,1";
+  var max = req.query.max ? req.query.max:1;
+  var format = req.query.format ? req.query.format:"JSON";
 
-app.get('/match/:corpus/:input/:extension/:weights', function(req, res){
-  var weightList = req.params.weights;
-  res.send(JSON.stringify(moma.getWordMatches(decodeURIComponent(req.params.input), req.params.corpus, req.params.extension, weightList, 1, false)), null, 4);
-});
-
-app.get('/match/:corpus/:input/:extension', function(req, res){
-  res.send(JSON.stringify(moma.getWordMatches(decodeURIComponent(req.params.input), req.params.corpus, req.params.extension, "1,1,1,1", 1, false)), null, 4); 
-});
-
-app.get('/match/:corpus/:input', function(req, res){
-  res.send(JSON.stringify(moma.getWordMatches(decodeURIComponent(req.params.input), req.params.corpus, 0, "1,1,1,1", 1, false)), null, 4);
+  var data = moma.getWordMatches(decodeURIComponent(input), req.params.corpus, extension, weights, max, (format == "image"));
+  res.send(formatOut(data, format, req.params.corpus));
 });
 
 //CHAINS
-app.get('/chain/:corpus/:input/:loops', function(req, res){
+app.get('/chain/:corpus/', function(req, res){
+
+  var input = req.query.input;
+  var loops = req.query.loops ? req.query.loops:10;
+  var format = req.query.format ? req.query.format:"JSON";
+
   var outs = [];
   var c = 0;
 
@@ -45,33 +44,44 @@ app.get('/chain/:corpus/:input/:loops', function(req, res){
     var link = moma.getWordMatches(decodeURIComponent(input), corpus, 1, "1,0.5,0,1", 1, false);
     outs.push(link);
     c++;
-    if (c < req.params.loops) {
+    if (c < loops) {
       console.log(link)
       getLoop(link.results[0].candidate.NLP.NLPString, corpus);
     }
   }
-  getLoop(req.params.input, req.params.corpus);
+  getLoop(input, req.params.corpus);
   res.send(outs);
 });
 
-app.get('/chain/:corpus/:input/:loops/images', function(req, res){
-  var outs = [];
-  var c = 0;
+function formatOut(data, mode, corpus) {
+  var r = "";
+  switch(mode) {
+    case "JSON":
+        r = JSON.stringify(data, null, 4);
+        break;
+    case "image":
+        for (var i = 0; i < data.results.length; i++) {
+          var result = data.results[i].candidate;
+          r = r.concat("<img src='http://www.moma.org" + result.ThumbnailURL + "'>");
+        }
+        break;
+    case "tombstone":
+        if (corpus == "artworks") {
+          for (var i = 0; i < data.results.length; i++) {
+            var result = data.results[i].candidate;
+            r = r.concat("<p>" + result.Title + ", " + result.Artist + ", " + result.Date + ", " + result.Medium + "</p>");
+          }
+        } else {
+          for (var i = 0; i < data.results.length; i++) {
+            var result = data.results[i].candidate;
+            r = r.concat("<p>" + result.DisplayName + ", " + result.ArtistBio +  "</p>");
+          }
 
-  function getLoop(input, corpus) {
-    var link = moma.getWordMatches(decodeURIComponent(input), corpus, 1, "1,0.5,0,1", 1, true);
-    outs.push('<img src="http://www.moma.org' + link.results[0].candidate.ThumbnailURL + '">');
-    c++;
-    if (c < req.params.loops) {
-      console.log(link)
-      getLoop(link.results[0].candidate.NLP.NLPString, corpus);
-    }
+        }
+        break;
   }
-  getLoop(req.params.input, req.params.corpus);
-  res.send(outs.join(""));
-});
-
-
+  return(r);
+}
 
 
 //START IT UP.
