@@ -1,5 +1,6 @@
-Accession - The Office for Creative Research and The Museum of Modern Art
+Accession: an API
 ===================
+###The Office for Creative Research and The Museum of Modern Art
 
 In the Spring of 2015,The Office For Creative Research (OCR), in collaboration with Elevator Repair Service (ERS), presented A Sort of Joy (Thousands of Exhausted Things), a live performance at MoMA that used information from MoMA’s collection database as the source material for its script, exploring the Museum’s past and present exhibitions.
 
