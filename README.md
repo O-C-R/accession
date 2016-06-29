@@ -4,11 +4,9 @@ Accession: an API
 
 In the Spring of 2015,The Office For Creative Research (OCR), in collaboration with Elevator Repair Service (ERS), presented A Sort of Joy (Thousands of Exhausted Things), a live performance at MoMA that used information from MoMA’s collection database as the source material for its script, exploring the Museum’s past and present exhibitions.
 
-Here's a series of excerpts from one of the performances:
+If you have a minute, you can watch this video of excerpts from the performances: https://vimeo.com/133815147
 
-<iframe src="https://player.vimeo.com/video/133815147?title=0&byline=0&portrait=0" width="720" height="405" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
-In preparations for this performance, we wrote a lot of code and created a lot of tools to help us dig through the linguistic territory of the database.
+In preparations for this piece, we wrote a lot of code and created a lot of tools to help us dig through the linguistic territory of the database.
 
 This repository hosts some data ephemera from the performance, as well as a newly-written API that carries on some of the thematic explorations that we endeavoured upon.
 
