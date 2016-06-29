@@ -25,8 +25,8 @@ Please note that we can't and won't provide any support for the things that are 
 
 http://localhost:12892/*mode*/*corpus*/
 
-mode: 'match' or 'chain'
-corpus: 'artists' or 'artworks'
+- mode: 'match' or 'chain'
+- corpus: 'artists' or 'artworks'
 
 ###Parameters:
 
