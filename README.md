@@ -30,16 +30,16 @@ corpus: 'artists' or 'artworks'
 
 ###Parameters:
 
-input  string
-Location: query ?input=xyz
+**input**  string
+Location: query *?input=xyz*
 - Search query term
 
-extension  int
-Location: query ?extension=1
+**extension**  int
+Location: query *?extension=1*
 - How much longer (in words) you'd like returned artworks/artists to be than the input string
 
-weights  string
-Location: query ?weight=1,1,1,1
+**weights**  string
+Location: query *?weight=1,1,1,1*
 
 - Ordered list of 0-1 weights to apply to the returned artworks/artists.
 - Order of weights is:
@@ -48,8 +48,8 @@ Location: query ?weight=1,1,1,1
 [2]: Stressing pattern
 [3]: Syllables
 
-input  format
-Location: query ?format=JSON
+**input**  format
+Location: query *?format=JSON*
 - Return format of the API response
 - Valid formats are:
 JSON
