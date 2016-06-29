@@ -158,9 +158,24 @@ Because the API considers things like stressing patterns and syllables, the resu
 
 Using the image format parameter, you can get nice collages of images based on search terms. These usually start in somewhat expected places, then ramble off into abstraction and loose connections. Here are a few examples:
 
+Telephone:
+
 <a href='https://postimg.org/image/m5fsadr47/' target='_blank'><img src='https://s31.postimg.org/m5fsadr47/telephone.png' border='0' alt="telephone"/></a><br/><br/>
+
+Tree:
+
 <a href='https://postimg.org/image/sx67d8g3r/' target='_blank'><img src='https://s31.postimg.org/sx67d8g3r/tree.png' border='0' alt="tree"/></a><br/><br/>
+
+Nude:
+
 <a href='https://postimg.org/image/cng1ac5fr/' target='_blank'><img src='https://s31.postimg.org/cng1ac5fr/nude.png' border='0' alt="nude"/></a><br/><br/>
+
+Man:
+
+<a href='https://postimg.org/image/e98hpt1if/' target='_blank'><img src='https://s31.postimg.org/e98hpt1if/man.png' border='0' alt='postimage'/></a>
+
+Woman:
+
 <a href='https://postimg.org/image/u209im2kn/' target='_blank'><img src='https://s31.postimg.org/u209im2kn/woman.png' border='0'>
 
 ####Something Actually Useful
