@@ -227,6 +227,13 @@ Location: query *?format=JSON*
 
 ##Installing the API on your own machine
 
+First, clone the repo from GitHub.
+
+There are two large files in the repo - ArtistsNLP.json and ArtworksNLP.json. You have two options to get these:
+
+1. Download manually and add them to the repo: https://github.com/O-C-R/accession/blob/master/api/data/ArtistsNLP.json https://github.com/O-C-R/accession/blob/master/api/data/ArtworksNLP.json 
+2. Get them using git-lfs (pointers are in the repo and a 'git lfs pull' should pull them down)
+
 1. Install node.js
 2. npm install
 3. node ocr-app.js
@@ -236,5 +243,5 @@ Location: query *?format=JSON*
 
 ##Credits
 
-MoMA's data is in the public domain under a CC0 License.
-This code is released under a CCA License.
+MoMA's data is in the public domain under a CC0 License: https://creativecommons.org/share-your-work/public-domain/cc0/
+This code is released under a CC BY License: https://creativecommons.org/licenses/by/4.0/
