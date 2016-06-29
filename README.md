@@ -43,25 +43,28 @@ Location: query *?weight=1,1,1,1*
 
 - Ordered list of 0-1 weights to apply to the returned artworks/artists.
 - Order of weights is:
-[0]: Pattern
-[1]: Parts of Speech
-[2]: Stressing pattern
-[3]: Syllables
+*[0]: Pattern
+*[1]: Parts of Speech
+*[2]: Stressing pattern
+*[3]: Syllables
 
 **input**  format
 Location: query *?format=JSON*
 - Return format of the API response
 - Valid formats are:
-JSON
-tombstone
-image
+*JSON
+*tombstone
+*image
+
+###Examples:
+
+http://localhost:12892/match/artworks?input=big%20bird
+http://localhost:12892/match/artworks?input=big%20bird&extension=1
+http://localhost:12892/match/artworks?input=big%20bird&weights=1,0,0,1
+http://localhost:12892/match/artworks?input=big%20bird&format=image
+http://localhost:12892/match/artworks?input=big%20bird&max=20&format=tombstone
 
 
-
-
-example:
-
-http://localhost:12892/match/artworks?input=test%20toy%20for%20girls%20and%20boys
 
 ##Installing the API on your own machine
 
