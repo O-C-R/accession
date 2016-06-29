@@ -36,12 +36,13 @@ app.get('/chain/:corpus/', function(req, res){
   var input = req.query.input;
   var loops = req.query.loops ? req.query.loops:10;
   var format = req.query.format ? req.query.format:"JSON";
+  var weights = req.query.weights ? req.query.weights:"1,0.5,0,1";
 
   var outs = [];
   var c = 0;
 
   function getLoop(input, corpus) {
-    var link = moma.getWordMatches(decodeURIComponent(input), corpus, 1, "1,0.5,0,1", 1, false);
+    var link = moma.getWordMatches(decodeURIComponent(input), corpus, 1, weights, 1, false);
     outs.push(link.results[0]);
     c++;
     if (c < loops) {
