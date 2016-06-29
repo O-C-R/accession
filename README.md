@@ -18,7 +18,15 @@ Please note that we can't and won't provide any support for the things that are 
 
 # API
 
+For years, we've been fascinated by the idea of APIs as art objects, and this particular API is a direct exploration of this concept.
+
+As such, this API doesn't exactly behave how you might expect an API to behave. For one thing, it almost never will return you a result that is exactly what you're asking for. More than that, we've made the *way* that you ask the API questions abstract in itself, which means that using it is an experience that is at best serendipidous and at worst inexact.
+
+We're going to explain how the API works twice; once for people who might not even know what an API is, and again for those of you who are more data saavy. 
+
 ##Using the API (For non-experts)
+
+Alright, let's start at the beginning. What is an API?
 
 ##Using the API (For data people)
 
@@ -63,11 +71,16 @@ Location: query *?format=JSON*
 - http://localhost:12892/match/artworks?input=big%20bird&max=20&format=tombstone
 
 
-
 ##Installing the API on your own machine
 
 1. Install node.js
 2. npm install
 3. node ocr-app.js
+4. access endpoints at localhost:12892
 
 ##Preparing data
+
+##Credits
+
+MoMA's data is in the public domain under a CC0 License.
+This code is released under a CCA License.
