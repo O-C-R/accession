@@ -124,12 +124,48 @@ Finally, if you are the type of person who gets frustrated easily with text, you
 
 ####Write a Poem
 
+In our performance, we used a series of what we called 'title chains' - lists of similar artwork titles that got longer with each step. These are little poetic wanders through MoMA's collection. A chain that starts with 'girl' looks like this:
+
+1. A Girl, Kumi Machida, 2003, Lithograph
+2. A Young Girl, Balthus (Baltusz Klossowski de Rola), 1947, Chalk on colored paper
+3. A Young Factory Worker, Tranquillo Casiraghi, c. 1955, Gelatin silver print
+4. The Old Factory Site, Canton, John Thomson, 1873, Collotype
+5. The Black Factory Archive: SUM Film, William Pope.L, 2014, Blue Ray
+6. The Black Factory Archive: Josephine Baker Figurine, William Pope.L, 2014, null
+7. The Black Factory Archive: Digital Files and website, William Pope.L, 2014, Mac Mini
+8. The Back of Half Dome, Yosemite National Park, California, Ansel Adams, c. 1920, Gelatin silver print
+9. Fir Forest in Snow, Wawona Road, Yosemite National Park, California, Ansel Adams, 1948, Gelatin silver print, printed 1978
+10. Half Dome, Thunder Clouds, from Glacier Point, Yosemite National Park, California, Ansel Adams, 1947, Gelatin silver print, printed 1978
+
+You can do this manually with 10 calls to the API using the 'extension' parameter. But we liked this mechanism so much that we made an endpoint for it. To get a chain for 'Donald Trump':
+
+http://localhost:12892/chain/artworks?input=Donald%20Trump&format=tombstone
+
 ####Compose a Song
+
+One of the audience's favourite part from our performance was a song that we constructed from artists' names, put to the tune of 'My Favorite Things'. We did this with assistance from the same type of language analysis that we built into this API. For example, we can use two calls to the API to turn 'Raindrops on roses and whiskers on kittens' into 'Linda van Deursen and Richard Van Buren'. 'Bright copper kettles and warm woolen mittens' becomes 'George Mather Richards and Hans Hermann Steffens'.
+
+We can do the same thing with artist titles:
+
+Landscape with Noses and Workers and Paintings
+Trieste Ledger Series and Farm Couple Spinning
+My Mother Posing for Me in Palm Springs
+These are a few of my favorite things
+
+Because the API considers things like stressing patterns and syllables, the result is (go ahead and try it) perfectly singable.
 
 ####Make a Stream of Conciousness Collage
 
+Using the image format parameter, you can get nice collages of images based on search terms. These usually start in somewhat expected places, then ramble off into abstraction and loose connections. Here are a few examples:
+
+<a href='https://postimg.org/image/m5fsadr47/' target='_blank'><img src='https://s31.postimg.org/m5fsadr47/telephone.png' border='0' alt="telephone"/></a><br/><br/>
+<a href='https://postimg.org/image/sx67d8g3r/' target='_blank'><img src='https://s31.postimg.org/sx67d8g3r/tree.png' border='0' alt="tree"/></a><br/><br/>
+<a href='https://postimg.org/image/cng1ac5fr/' target='_blank'><img src='https://s31.postimg.org/cng1ac5fr/nude.png' border='0' alt="nude"/></a><br/><br/>
+<a href='https://postimg.org/image/u209im2kn/' target='_blank'><img src='https://s31.postimg.org/u209im2kn/woman.png' border='0'>
+
 ####Something Actually Useful
 
+Just kidding. There's nothing actually useful you can do with this API.
 
 ##Using the API (For data people)
 

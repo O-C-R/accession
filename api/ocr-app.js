@@ -50,7 +50,7 @@ app.get('/chain/:corpus/', function(req, res){
     }
   }
   getLoop(input, req.params.corpus);
-  res.send(formatOut({"query":input, "corpus":corpus, "results":outs}, format, req.params.corpus));
+  res.send(formatOut({"query":input, "corpus":req.params.corpus, "results":outs}, format, req.params.corpus));
 });
 
 function formatOut(data, mode, corpus) {
