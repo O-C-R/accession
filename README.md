@@ -28,7 +28,9 @@ As such, this API doesn't exactly behave how you might expect an API to behave. 
 
 We're going to explain how the API works twice; once for people who might not even know what an API is, and again for those of you who are more data saavy. 
 
-For both of these sections, we'll be pointing to the version of this API that we're hosting at **INSERT URL HERE**. An easier way to explore this data might be for you to install the API on your own computer; instructions for this are down this page a little further.
+For both of these sections, we'll be pointing to the version of this API that we're hosting at http://accession.ocr.nyc. An easier way to explore this data might be for you to install the API on your own computer; instructions for this are down this page a little further.
+
+**Important Caveat:** This API was meant to produce scripts for a performance, and not to be used live during said performance. All of the requests that we're going to make to the API below take some time. Sometimes about 5 seconds, but for the more complicated queries it can be up to 45 seconds. So be patient.
 
 ##Using the API (For non-experts)
 
