@@ -85,7 +85,7 @@ function formatOut(data, mode, corpus) {
 
 
 //START IT UP.
-var server = app.listen(12892, function() {
+var server = app.listen(8080, function() {
     console.log('Listening on port %d', server.address().port);
 });
 
