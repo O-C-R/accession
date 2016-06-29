@@ -221,10 +221,10 @@ Location: query *?weight=1,1,1,1*
 - Ordered list of 0-1 weights to apply to the returned artworks/artists.
 - Order of weights is:
 
-*[0]: Pattern
-*[1]: Parts of Speech
-*[2]: Stressing pattern
-*[3]: Syllables
+- [0]: Pattern
+- [1]: Parts of Speech
+- [2]: Stressing pattern
+- [3]: Syllables
 
 **input**  format
 Location: query *?format=JSON*
