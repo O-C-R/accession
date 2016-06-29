@@ -99,6 +99,7 @@ A longer version of 'Tit for Tat':
 http://accession.ocr.nyc/match/artworks?input=tit%20for%20tat&format=tombstone&extension=1
 
 The algorithm that gives us back matches considers four things:
+
 1. The *pattern* - the actual phrase that we input and the letters that make it up.
 2. The *parts of speech* - the grammatical make-up of the phrase
 3. The *stressing pattern* - how the phrase is spoken; where emphasis is
@@ -219,6 +220,7 @@ Location: query *?weight=1,1,1,1*
 
 - Ordered list of 0-1 weights to apply to the returned artworks/artists.
 - Order of weights is:
+
 *[0]: Pattern
 *[1]: Parts of Speech
 *[2]: Stressing pattern
