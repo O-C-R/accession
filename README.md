@@ -127,14 +127,23 @@ Finally, if you are the type of person who gets frustrated easily with text, you
 In our performance, we used a series of what we called 'title chains' - lists of similar artwork titles that got longer with each step. These are little poetic wanders through MoMA's collection. A chain that starts with 'girl' looks like this:
 
 > A Girl
+
 > A Young Girl
+
 > A Young Factory Worker
+
 > The Old Factory Site, Canton
+
 > The Black Factory Archive: SUM Film
+
 > The Black Factory Archive: Josephine Baker Figurine
+
 > The Black Factory Archive: Digital Files and website
+
 > The Back of Half Dome, Yosemite National Park, California
+
 > Fir Forest in Snow, Wawona Road, Yosemite National Park, California
+
 > Half Dome, Thunder Clouds, from Glacier Point, Yosemite National Park, California
 
 You can do this manually with 10 calls to the API using the 'extension' parameter. But we liked this mechanism so much that we made an endpoint for it. To get a chain for 'Donald Trump':
