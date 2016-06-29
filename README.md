@@ -21,12 +21,43 @@ Please note that we can't and won't provide any support for the things that are 
 
 ##Using the API (For data people)
 
-http://localhost:12892/match/*corpus*/*input*/*extension*/*weights*
+###Base URL Construction:
 
+http://localhost:12892/*mode*/*corpus*/
+
+mode: 'match' or 'chain'
 corpus: 'artists' or 'artworks'
-input: your search string
-extension: how many words longer or shorter you'd like the returned objects(s) to be
-weights: custom adjustment to the weightings applied to the NLP factors. *pattern*,*parts of speech*,*stressing*,*syllables*
+
+###Parameters:
+
+input  string
+Location: query ?input=xyz
+- Search query term
+
+extension  int
+Location: query ?extension=1
+- How much longer (in words) you'd like returned artworks/artists to be than the input string
+
+weights  string
+Location: query ?weight=1,1,1,1
+
+- Ordered list of 0-1 weights to apply to the returned artworks/artists.
+- Order of weights is:
+[0]: Pattern
+[1]: Parts of Speech
+[2]: Stressing pattern
+[3]: Syllables
+
+input  format
+Location: query ?format=JSON
+- Return format of the API response
+- Valid formats are:
+JSON
+tombstone
+image
+
+
+
 
 example:
 
