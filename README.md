@@ -61,7 +61,7 @@ image
 
 example:
 
-http://localhost:12892/match/artworks/test%20toy%20for%20boys%20and%20girls/0/0,0,1,0
+http://localhost:12892/match/artworks?input=test%20toy%20for%20girls%20and%20boys
 
 ##Installing the API on your own machine
 
